@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginTowFragment">
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/login_fondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:imagePanX="0"
+        app:imageZoom="1"
+        app:overlay="false"
+        app:srcCompat="@drawable/key" />
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/key_return"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            app:overlay="false"
+            app:srcCompat="@drawable/ic_baseline_return_white" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/key_qr"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            app:overlay="false"
+            app:srcCompat="@drawable/ic_baseline_qr_code_24" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="40dp">
+
+        <TextView
+            android:id="@+id/key_text_header"
+            style="@style/header_ligth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:text="@string/key_register"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/key_text_body"
+            style="@style/body_ligth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/key_text_header"
+            android:layout_marginTop="5dp"
+            android:text="@string/key_body" />
+    </RelativeLayout>
+    <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:padding="40dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:layout_gravity="bottom">
+
+            <EditText
+                android:id="@+id/key_input_token"
+                style="@style/input_ligth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/key_register_input"
+                android:inputType="textPassword"
+                android:text="" />
+
+            <Button
+                android:id="@+id/key_btn_registrer"
+                style="@style/btn_primary"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/btn_secundary"
+                android:text="@string/key_register_btn"
+                app:iconTint="@color/p1"
+                app:rippleColor="@color/p1" />
+
+        </LinearLayout>
+        </ScrollView>
+
+</FrameLayout>

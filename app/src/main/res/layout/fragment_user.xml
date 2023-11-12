@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="55dp"
+    tools:context=".ui.user.UserFragment">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_relative_configuration">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/user_img_fondo"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:src="@drawable/evento"
+            app:imagePanX="1"
+            app:imageZoom="1" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_ico"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/sin_perfil"
+            app:civ_border_color="@color/white"
+            app:civ_border_overlay="false"
+            app:civ_border_width="3dp"
+            app:civ_circle_background_color="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/user_relative_configuration"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:background="@drawable/rect_sald_text"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/user_ico">
+
+            <TextView
+                android:id="@+id/user_text_name"
+                style="@style/header_text_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Yonathan Rivas J."
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/user_text_email"
+                style="@style/body_text_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user_text_name"
+                android:layout_marginTop="0dp"
+                android:text="fosker@gmail.com"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/text_version_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user_text_rol"
+                android:layout_marginTop="6dp"
+                android:text="versión"
+                android:textAlignment="center"
+                android:textColor="@color/p1" />
+
+            <TextView
+                android:id="@+id/user_text_rol"
+                style="@style/body_text_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user_text_email"
+                android:text="COORDINADOR"
+                android:textAlignment="center" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/title_configuration"
+        style="@style/code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="CONFIGURACIÓN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rect_sald_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_configuration"></RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rect_sald_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"></RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rect_sald_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3"></RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rect_sald_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"></RelativeLayout>
+
+    <ImageView
+        android:id="@+id/config_info_key"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_info_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_configuration" />
+
+    <TextView
+        android:id="@+id/user_text_token"
+        style="@style/key_no_valida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Key no verificada"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/config_info_key"
+        app:layout_constraintTop_toBottomOf="@+id/info_key" />
+
+    <TextView
+        android:id="@+id/info_key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:text="Clave de configuración QR "
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/config_info_key"
+        app:layout_constraintTop_toBottomOf="@+id/title_configuration" />
+
+    <ImageView
+        android:id="@+id/config_img_key"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/delete_img_key"
+        app:layout_constraintTop_toBottomOf="@+id/title_configuration"
+        app:srcCompat="@drawable/ic_baseline_key_24_gray" />
+
+    <ImageView
+        android:id="@+id/delete_img_key"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_configuration"
+        app:srcCompat="@drawable/ic_baseline_delete_gray" />
+
+    <ImageView
+        android:id="@+id/config_info_id_event"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_baseline_info_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/config_info_key" />
+
+    <ImageView
+        android:id="@+id/delete_img_id_event"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delete_img_key"
+        app:srcCompat="@drawable/ic_baseline_delete_gray" />
+
+    <TextView
+        android:id="@+id/user_text_event"
+        style="@style/key_no_valida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Evento no verificado"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/config_info_id_event"
+        app:layout_constraintTop_toBottomOf="@+id/info_id_event" />
+
+    <ImageView
+        android:id="@+id/config_info_id_article"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_baseline_info_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/config_info_id_event" />
+
+    <TextView
+        android:id="@+id/info_id_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="45dp"
+        android:text="ID Evento"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/config_info_id_event"
+        app:layout_constraintTop_toBottomOf="@+id/info_key" />
+
+    <TextView
+        android:id="@+id/info_id_article"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:text="Función"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/config_info_id_article"
+        app:layout_constraintTop_toBottomOf="@+id/info_id_event" />
+
+    <ImageView
+        android:id="@+id/config_img_id_event"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/delete_img_id_event"
+        app:layout_constraintTop_toBottomOf="@+id/config_img_key"
+        app:srcCompat="@drawable/ic_baseline_key_24_gray" />
+
+    <ImageView
+        android:id="@+id/delete_img_article"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delete_img_id_event"
+        app:srcCompat="@drawable/ic_baseline_delete_gray" />
+
+    <ImageView
+        android:id="@+id/config_img_id_article"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/delete_img_article"
+        app:layout_constraintTop_toBottomOf="@+id/config_img_id_event"
+        app:srcCompat="@drawable/ic_baseline_format_list_gry" />
+
+    <TextView
+        android:id="@+id/user_text_article"
+        style="@style/key_no_valida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Funció no verificada"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/config_info_id_article"
+        app:layout_constraintTop_toBottomOf="@+id/info_id_article" />
+
+    <ImageView
+        android:id="@+id/config_info_type_event"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_baseline_info_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/config_info_id_article" />
+
+    <TextView
+        android:id="@+id/info_type_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:text="Tipo de evento"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/config_info_type_event"
+        app:layout_constraintTop_toBottomOf="@+id/user_text_article" />
+
+    <TextView
+        android:id="@+id/user_text_type_function"
+        style="@style/key_no_valida"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Tipo de evento no seleccionado"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/config_info_type_event"
+        app:layout_constraintTop_toBottomOf="@+id/info_type_event" />
+
+    <ImageView
+        android:id="@+id/config_img_type_function"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/delete_img_article"
+        app:layout_constraintTop_toBottomOf="@+id/config_img_id_article"
+        app:srcCompat="@drawable/ic_baseline_format_list_gry" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/login_fondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:imagePanX="1"
+        app:imageZoom="1"
+        app:srcCompat="@drawable/fondo_login" />
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_gravity="bottom">
+
+            <include
+                android:id="@+id/fragment_login_one"
+                layout="@layout/fragment_login_one"
+                android:layout_width="match_parent"
+                android:layout_height="550dp" />
+
+            <include
+                android:id="@+id/fragment_login_tow"
+                layout="@layout/fragment_login_tow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="182dp" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

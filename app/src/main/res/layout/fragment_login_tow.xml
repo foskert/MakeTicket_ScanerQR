@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp"
+    app:constraint_referenced_tags="20dp"
+    tools:context=".LoginTowFragment">
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/fragment_two_text_header"
+            style="@style/header_ligth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fragment_tow_text_header"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="7dp"
+            android:text="@string/fragment_tow_header"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_tow_text_header"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/fragment_tow_text_header"
+            style="@style/body_ligth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/fragment_tow_body"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_tow_edt_email" />
+
+        <Button
+            android:id="@+id/fragment_tow_btn_login"
+            style="@style/btn_primary"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/btn_primary"
+            android:text="@string/fragment_tow_login"
+            app:backgroundTint="@color/p4"
+            app:cornerRadius="20dp"
+            app:iconTint="@color/p4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:rippleColor="@color/p4"
+            tools:layout_editor_absoluteX="-16dp" />
+
+        <EditText
+            android:id="@+id/fragment_tow_edt_email"
+            style="@style/input_ligth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:drawableTint="@color/black"
+            android:foregroundTint="@color/black"
+            android:hint="Correo electronico ó usuario"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_tow_edt_password" />
+
+
+        <EditText
+            android:id="@+id/fragment_tow_edt_password"
+            style="@style/input_ligth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/fragment_tow_password"
+            android:inputType="textPassword"
+            android:text=""
+            android:textColor="@color/gris_medio_alto"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_tow_btn_login" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

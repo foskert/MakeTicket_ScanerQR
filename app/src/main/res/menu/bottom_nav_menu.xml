@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_baseline_dashboard_24"
+        android:title="@string/title_home" />
+
+
+
+    <item
+        android:id="@+id/navigation_qr_scaner"
+        android:icon="@drawable/ic_baseline_qr_code_scanner_24"
+        android:title="@string/qr_scaner" />
+    <item
+        android:id="@+id/navigation_order_ticket_qr_scaner"
+        android:icon="@drawable/ic_baseline_ticket_white"
+        android:title="@string/detail_order" />
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_baseline_manage_accounts_24"
+        android:title="@string/user" />
+
+</menu>

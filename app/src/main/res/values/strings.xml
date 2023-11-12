@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">QRScaner</string>
+    <string name="qr_scaner">QRScaner</string>
+    <string name="order_detail">Detalle orden</string>
+    <string name="version_text">Vesión </string>
+    <string name="version_number">1.0.1 </string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="by_empresa">By maketicket</string>
+    <string name="app_derechos">Todos los dorechos reservados | 2022 Entretainment maketicket</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragment_one_netx">Inicia sesión</string>
+    <string name="fragment_one_header">¿Preparado para la experiencia?</string>
+    <string name="fragment_one_body">Ingresa para tener acceso a al mejor contenido y promoción de evento que podemos ofrecerte! </string>
+    <string name="fragment_tow_login">Inicia sesión</string>
+    <string name="fragment_tow_header">Inicia Sesión</string>
+    <string name="fragment_tow_body">Utiliza su correo electrónico y su contraseña para iniciar sesión! </string>
+    <string name="fragment_tow_email">Correo electrónico</string>
+    <string name="fragment_tow_password">Contraseña</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_order">Ordenes</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="key_register">Registro token</string>
+    <string name="key_register_input">Ingresa el token</string>
+    <string name="key_register_btn">Registrar</string>
+    <string name="home_not">No disponible</string>
+    <string name="home_info_setting">Configuración</string>
+    <string name="user">Configuración</string>
+    <string name="alert">Alerta</string>
+    <string name="info">Información</string>
+    <string name="credencial_token">No hay credenciales de token varificados</string>
+    <string name="credencial_event">No hay credenciales de evento varificados</string>
+    <string name="credencial_article">No hay credenciales para la función del evento </string>
+    <string name="delete_token">¿Esta seguro que desea eliminar la verificación de token?</string>
+    <string name="delete_event">¿Esta seguro que desea eliminar la verificación del evento? todas las credenciales tanto del evento como las funciones seleccionadas seran eliminadas</string>
+    <string name="delete_article">¿Esta seguro que desea eliminar la verificación de la función?</string>
+    <string name="info_id_event">Ingresa el ID del evento para evaluar las entradas de los usuarios</string>
+    <string name="info_key">Ingresa la clave suministrada para poder utilizar el metodo de escaneo QR</string>
+    <string name="info_article">Debes seleccionar una de las funciones disponibles en la lista, solo si el evento posee funciones </string>
+    <string name="info_type_event">Debe seleccionar el tipo de evento. los eventos por audiencia refieren a la participación de tickets, los eventos por participación refieren a aquellos que participan o forma parte del evento. </string>
+    <string name="detail_order">Detalle de orden</string>
+    <string name="credenciales">No posee las credenciales necesarias para el escaneo de código QR</string>
+    <string name="home_header">Elixir de Amor+El Cascanueces</string>
+    <string name="home_body">El Elixir de Amor: Esta ópera cuenta la historia de Nemorino, un joven campesino melancólico e ingenuo, enamorado de Adina, una bella terrateniente, quien lo atormenta con su indiferencia. Cuando Nemorino oye a Adina leyendo a sus trabajadores la historia de Tristán e Isolda, está convencido de que una poción mágica le conseguirá su amor. El muchacho tiene miedo de que ella ame al sargento Belcore, que le da demasiada importancia, quien aparece con su regimiento e inmediatamente propone matrimonio a Adina en frente de todo el mundo. Aparece un charlatán, el doctor Dulcamara, quien vende una botella que lo cura todo. Desesperado, Nemorino le pide inocentemente si tiene algo parecido a la poción amorosa de Isolda. Dulcamara dice que sí, y Nemorino le compra el misterioso elixir que vende el doctor Dulcamara, con un precio que es igual al dinero que tiene Nemorino en sus bolsillos. A partir de ahí el cuento cobrará nuevos e inesperados acontecimientos.</string>
+    <string name="sing_out">¿Esta seguro que desea cerrar la sesión?</string>
+    <string name="key_body">Ingresa el token, para la verificación de QR, el token estara activo por el evento correspondiente  </string>
+    <string name="title_activity_alternativo_menu">AlternativoMenuActivity</string>
+    <string name="title_activity_detail_mesa">DetailMesaActivity</string>
+    <string name="title_activity_detail_silla">DetailSillaActivity</string>
+
+
+</resources>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="header_ligth" parent="@android:style/TextAppearance">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="static_header" parent="@android:style/TextAppearance">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="static_header_ligth" parent="@android:style/TextAppearance">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">left</item>
+    </style>
+    <style name="static_header_2" parent="@android:style/TextAppearance">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="name_event" parent="@android:style/TextAppearance">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="name_event_ligth" parent="@android:style/TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">right</item>
+    </style>
+    <style name="static_body" parent="@android:style/TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="static_body_2" parent="@android:style/TextAppearance">
+        <item name="android:textSize">10sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="header_key" parent="@android:style/TextAppearance">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/p1</item>
+    </style>
+    <style name="n_code" parent="@android:style/TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/p1</item>
+    </style>
+    <style name="key_no_valida" parent="@android:style/TextAppearance">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/p1</item>
+    </style>
+    <style name="key_valida" parent="@android:style/TextAppearance">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/green</item>
+    </style>
+    <style name="text_normal" parent="@android:style/TextAppearance">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#131413</item>
+    </style>
+    <style name="body_key" parent="@android:style/TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="modal_title" parent="@android:style/TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="modal_body" parent="@android:style/TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="email_home" parent="@android:style/TextAppearance">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+    <style name="body_home" parent="@android:style/TextAppearance">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">#666769</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+    <style name="code" parent="@android:style/TextAppearance">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#666769</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+    <style name="code_event" parent="@android:style/TextAppearance">
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@color/p1</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+    <style name="partaker" parent="@android:style/TextAppearance">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">#666769</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+    <style name="partaker_lihtg" parent="@android:style/TextAppearance">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">#666769</item>
+
+    </style>
+    <style name="bold_orden" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#666769</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+    <style name="header_text_user" parent="@android:style/TextAppearance">
+        <item name="android:textSize">22dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#666769</item>
+
+    </style>
+    <style name="header_text_home" parent="@android:style/TextAppearance">
+        <item name="android:textSize">28dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#1C84D7</item>
+    </style>
+    <style name="body_text_user" parent="@android:style/TextAppearance">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/gris_medio_alto</item>
+
+    </style>
+    <style name="body_ligth" parent="@android:style/TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="input_ligth" parent="@android:style/TextAppearance">
+        <item name="android:background">@drawable/style_input</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:textColor">@color/gris_medio</item>
+    </style>
+    <style name="text_nigth" parent="@android:style/TextAppearance">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="btn_primary" parent="@android:style/TextAppearance">
+        <item name="colorPrimary">@color/p2</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorPrimaryDark">@color/p2</item>
+        <item name="colorAccent">@color/p2</item>
+    </style>
+    <style name="toolbar_modal" parent="@android:style/TextAppearance">
+        <item name="colorPrimary">@color/p4</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorPrimaryDark">@color/p2</item>
+        <item name="colorAccent">@color/p2</item>
+    </style>
+    <style name="btn_seccount" parent="@android:style/TextAppearance">
+        <item name="colorSecondary">@color/p1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorSecondaryContainer">@color/p1</item>
+        <item name="colorAccent">@color/p1</item>
+    </style>
+</resources>
