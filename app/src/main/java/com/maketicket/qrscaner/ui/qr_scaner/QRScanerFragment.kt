@@ -72,6 +72,9 @@ class QRScanerFragment : Fragment() {
         _binding!!.imgToolbarQrFragment.setOnClickListener {
             CodeQR()
         }
+        binding!!.fab.setOnClickListener {
+            CodeQR()
+        }
         iniRecycleView()
         _binding!!.btnMenuHomeQrFragment.setOnClickListener {
             MyBottomSheetDialogFragment().show(activity?.supportFragmentManager!!, "menu")

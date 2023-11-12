@@ -107,6 +107,9 @@ class OrderFragment : Fragment(), FragmentResultListener{
             Log.d("FRAGMENT_ORDEN", QRSanerApplication.preference.getCodeQR() )
             getCodeValue(QRSanerApplication.preference.getCodeQR())
         }
+        binding!!.fab.setOnClickListener {
+            CodeQR()
+        }
         _binding!!.detailTextInfo.setText(info)
         iniRecycleViewCodeQR()
         iniRecycleViewArticle()
