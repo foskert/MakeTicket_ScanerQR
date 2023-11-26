@@ -76,7 +76,7 @@ class OrderEventService : Service() {
                 // runOnUiThread {
                 if (call.isSuccessful) {
                     if (response != null) {
-                        if (response.success) {
+                        if (response.success!!) {
                             //iniTextTicket(response.total)
                             response.total?.forEach {
                                 if(it.status.equals("Registrado")){

@@ -82,8 +82,11 @@ class OrderDniActivity : AppCompatActivity() {
                 if(call.isSuccessful) {
                     if (response != null) {
                         Log.d("LIST_ORDER_DNI", "respuesta $response")
-
-                        load(response)
+                        if(response.success==true){
+                            load(response.data)
+                        }else{
+                            showResponse(response.status)
+                        }
                     }else{
                         showResponse("Error de respuesta  ")
                     }

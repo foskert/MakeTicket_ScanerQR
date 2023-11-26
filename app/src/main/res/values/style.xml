@@ -140,6 +140,11 @@
         <item name="android:padding">15dp</item>
         <item name="android:textColor">@color/gris_medio</item>
     </style>
+    <style name="input_search" parent="@android:style/TextAppearance">
+        <item name="android:background">@drawable/style_input</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/gris_medio</item>
+    </style>
     <style name="text_nigth" parent="@android:style/TextAppearance">
         <item name="android:textSize">18dp</item>
         <item name="android:textStyle">bold</item>
@@ -163,5 +168,8 @@
         <item name="android:textColor">@color/white</item>
         <item name="colorSecondaryContainer">@color/p1</item>
         <item name="colorAccent">@color/p1</item>
+    </style><style name="CampoTextoRed" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/p1</item>
+        <item name="android:textColorHighlight">@color/p1</item>
     </style>
 </resources>

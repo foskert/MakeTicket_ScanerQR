@@ -48,8 +48,10 @@ class MesaSillaHolder (view:View): RecyclerView.ViewHolder(view) {
             activity?.runOnUiThread {
                 if(call.isSuccessful) {
                     if (response != null) {
-                        Log.d("DETALLE_SILLA", response.chair.toString())
-                        OrderDetail(response,  view)
+                        Log.d("DETALLE_SILLA", response.toString())
+                        if(response.success==true) {
+                            OrderDetail(response.data!!, view)
+                        }
                     }else{
                         Log.d("DETALLE_SILLA", "Es nulo")
                         ModalOrden(view)

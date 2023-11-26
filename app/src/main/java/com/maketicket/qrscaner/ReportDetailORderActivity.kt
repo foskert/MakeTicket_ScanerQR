@@ -44,7 +44,11 @@ class ReportDetailORderActivity : AppCompatActivity() {
             runOnUiThread {
                 if(call.isSuccessful) {
                     if (response != null) {
-                        iniReportDetailOrder(response)
+                        if(response.success==true) {
+                            iniReportDetailOrder(response)
+                        }else{
+                            showResponse(response.status.toString())
+                        }
                     }else{
                         showResponse("Error respuesta nula ")
                     }

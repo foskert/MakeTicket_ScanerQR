@@ -69,7 +69,7 @@ class OrderEnteredActivity : AppCompatActivity() {
                 loading_progessbar.visibility = View.GONE
                 if(call.isSuccessful) {
                     if (response != null) {
-                        if (response.success){
+                        if (response.success==true){
                             load(response.orderEntered)
                         }else{
                             showResponse("No existe data para el evento  "+QRSanerApplication.preference.getNameEvent())

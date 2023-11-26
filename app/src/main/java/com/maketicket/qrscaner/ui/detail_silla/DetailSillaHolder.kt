@@ -65,8 +65,12 @@ class DetailSillaHolder (view: View): RecyclerView.ViewHolder(view) {
                 loading_progessbar.visibility = View.GONE
                 if(call.isSuccessful) {
                     if (response != null) {
-                        Log.d("DETALLE_SILLA", response.chair.toString())
-                        OrderDetail(response.id_purchase_order.toString(),  view)
+                        Log.d("DETALLE_SILLA", response.toString())
+                        if(response.success==true) {
+                            OrderDetail(response.data?.id_purchase_order.toString(), view)
+                        }else{
+                            Log.d("DETALLE_SILLA", response.status.toString())
+                        }
                     }else{
                         Log.d("DETALLE_SILLA", "Es nulo")
                         ModalOrden(view)

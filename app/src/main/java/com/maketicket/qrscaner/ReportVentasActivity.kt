@@ -70,7 +70,12 @@ class ReportVentasActivity : AppCompatActivity() {
                 binding.loadingProgessbar.visibility = View.GONE
                 if(call.isSuccessful) {
                     if (response != null) {
-                        iniReportVentas(response)
+                        if (response.success==true){
+                            response.data?.let { iniReportVentas(it) }
+                        }else{
+                            showResponse(response.status.toString())
+                        }
+
                     }else{
                         showResponse("Error respuesta nula ")
                     }

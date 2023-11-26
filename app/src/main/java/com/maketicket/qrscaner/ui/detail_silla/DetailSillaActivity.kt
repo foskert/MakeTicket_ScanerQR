@@ -80,8 +80,11 @@ class DetailSillaActivity : AppCompatActivity() {
                 if(call.isSuccessful) {
                     if (response != null) {
                         Log.d("LIST_SILLAS", "respuesta $response")
-
-                        loadSilla(response)
+                        if(response.success==true) {
+                            loadSilla(response.data)
+                        }else{
+                            showResponse(response.status.toString())
+                        }
                     }else{
                         showResponse("Error de respuesta  ")
                     }

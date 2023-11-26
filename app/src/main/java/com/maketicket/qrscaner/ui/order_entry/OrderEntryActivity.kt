@@ -67,7 +67,11 @@ class OrderEntryActivity : AppCompatActivity() {
                 if(call.isSuccessful) {
                     if (response != null) {
                         Log.d("LIST_MESA_TABLE", "respuesta $response")
-                        load(response)
+                        if(response.success==true){
+                            load(response.data)
+                        }else{
+                            showResponse(response.status)
+                        }
                     }else{
                         showResponse("Error de respuesta  ")
                     }

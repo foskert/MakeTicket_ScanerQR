@@ -106,8 +106,11 @@ class MesaSillaActivity : AppCompatActivity() {
                 if(call.isSuccessful) {
                     if (response != null) {
                         Log.d("LIST_MESA_TABLE", "respuesta $response")
-
-                        loadMesaSilla(response)
+                        if(response.success==true){
+                            loadMesaSilla(response.data)
+                        }else{
+                            showResponse(response.status)
+                        }
                     }else{
                         showResponse("Error de respuesta  ")
                     }

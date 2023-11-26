@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName
 import com.maketicket.qrscaner.ui.model.Partaker
 
 data class OrderDetailApiResponse(
-    @SerializedName("success")             val success: Boolean,
+    @SerializedName("success")             val success: Boolean?,
+    @SerializedName("status")              val status: String?,
     @SerializedName("PurchaseOrder")       val purchaseOrder: PurchaseOrder?,
     @SerializedName("Partaker")            val partaker: Partaker?,
     @SerializedName("Articles")            val articles: ArrayList<Articles>?,

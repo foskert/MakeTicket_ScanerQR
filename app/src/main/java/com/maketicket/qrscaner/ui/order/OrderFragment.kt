@@ -191,8 +191,8 @@ class OrderFragment : Fragment(), FragmentResultListener{
                         Log.d("FRAGMENT_ORDEN_RESPONSE", response.toString())
                         Log.d("FRAGMENT_ORDEN_RESPONSE", i.toString())
                       //  Log.d("FRAGMENT_ORDEN_RESPONSE_dogCodeQR", dogCodeQR[i].toString())
-                        if(response.success) {
-                            addTicketDB(code, response.status)
+                        if(response.success==true) {
+                            addTicketDB(code, response.status!!)
                             dogCodeQR[i].status = "Fue al evento"
                             adpater_code_qr.UpdateData(dogCodeQR)
                             adpater_code_qr.notifyDataSetChanged()
@@ -419,7 +419,7 @@ class OrderFragment : Fragment(), FragmentResultListener{
                 _binding?.loadingProgessbar?.visibility = View.GONE
                 if(call.isSuccessful) {
                     if (response != null) {
-                        if (response.success){
+                        if (response.success!!){
                             QRSanerApplication.preference.setCodeQR(code)
                             loadOrder(
                                 response.purchaseOrder,

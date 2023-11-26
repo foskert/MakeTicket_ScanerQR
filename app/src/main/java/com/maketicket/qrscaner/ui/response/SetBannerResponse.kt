@@ -4,5 +4,7 @@ import com.google.gson.annotations.SerializedName
 import com.maketicket.qrscaner.ui.model.Banner
 
 class SetBannerResponse(
-    @SerializedName("data")  val data: Banner
+    @SerializedName("success")  val success: Boolean?,
+    @SerializedName("status")   val status: String?,
+    @SerializedName("data")     val data: Banner
 )

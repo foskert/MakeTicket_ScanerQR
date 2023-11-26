@@ -84,14 +84,17 @@ class EspaciosSillaActivity : AppCompatActivity() {
             val response = call.body()
             Log.d("LIST_SILLAS1", "respuesta ${call.body().toString()}")
             runOnUiThread {
-                Log.d("LIST_SILLAS1", "respuesta ${response?.image.toString()}")
+
 
                 loading_progessbar.visibility = View.GONE
                 if (call.isSuccessful) {
                     if (response != null) {
                         Log.d("LIST_SILLAS", "respuesta $response")
-                        Log.d("LIST_SILLAS", "array ${response.array.count()}")
-                        load(response)
+                        if(response.success==true){
+                            load(response.data!!)
+                        }else{
+                            showResponse(response.status)
+                        }
                     } else {
                         showResponse("Error de respuesta  ")
                     }

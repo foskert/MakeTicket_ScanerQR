@@ -33,7 +33,7 @@ class FunctionDetailHolder(
         binding.textArticleModel.setText(iten.funcion)
         //checkBox.isChecked = false
         DBHelper= MySQLiteHelper(activity)
-        val funct = DBHelper.ShowFunction(iten.id)
+        val funct = DBHelper.ShowFunction(iten.id!!)
         if (funct!= null) {
             iten.isSelectd = true
             checkBox.isChecked = true
@@ -43,15 +43,15 @@ class FunctionDetailHolder(
         }
 
         checkBox.setOnClickListener {
-            QRSanerApplication.preference.setIdArticle(iten.id)
+            QRSanerApplication.preference.setIdArticle(iten.id!!)
             QRSanerApplication.preference.setNameArticle(iten.funcion.toString())
             if(iten.isSelectd==false){
                 iten.isSelectd = true
-                DBHelper.addFunction(iten.id, "", "")
+                DBHelper.addFunction(iten.id!!, "", "")
                 Log.d("MODELHELPER ADD HOLDER TRUE", "query = ${it.isSelected}")
             }else{
                 iten.isSelectd = false
-                DBHelper.functionDelete(iten.id)
+                DBHelper.functionDelete(iten.id!!)
                 Log.d("MODELHELPER DELETE HOLDER FALSE", "query =${it.isSelected}")
             }
         }

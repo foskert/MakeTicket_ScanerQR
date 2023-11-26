@@ -50,7 +50,11 @@ import java.util.*
                  binding.loadingProgessbar.visibility = View.GONE
                  if(call.isSuccessful) {
                      if (response != null) {
-                         iniReportIcomet(response)
+                         if(response.success==true) {
+                             iniReportIcomet(response.data!!)
+                         }else{
+                             showResponse(response.status.toString())
+                         }
                      }else{
                          showResponse("Error respuesta nula ")
                      }

@@ -3,10 +3,17 @@ package com.maketicket.qrscaner
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.ContentValues
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.media.MediaScannerConnection
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.AlarmClock
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -14,6 +21,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -36,7 +44,19 @@ import com.maketicket.qrscaner.ui.model.Ticket
 import com.maketicket.qrscaner.ui.partaker.PartakerAdapter
 import com.maketicket.qrscaner.ui.qr_scaner.QRScanerAdapter
 import com.maketicket.qrscaner.ui.response.total
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.BufferedInputStream
+import java.io.BufferedOutputStream
+import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStreamWriter
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class DashboardActivity : AppCompatActivity() {
@@ -82,6 +102,17 @@ class DashboardActivity : AppCompatActivity() {
                 }.show()
             }
         }
+       // showResponse(preference.getTypeEvent())
+        if(preference.getTypeEvent()=="orden"){
+            binding!!.imgToolbarPdf.visibility = View.GONE
+        }else{
+            //showResponse(preference.getTypeEvent())
+            binding!!.imgToolbarPdf.visibility = View.VISIBLE
+            binding!!.imgToolbarPdf.setOnClickListener{
+                excelIngresoOrder()
+            }
+        }
+
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_dashboard)
 
@@ -114,7 +145,17 @@ class DashboardActivity : AppCompatActivity() {
             }
         }
         navController.addOnDestinationChangedListener { _, destination, _ ->
-                if(destination.id == R.id.navigation_qr_scaner) {
+
+            if(preference.getTypeEvent()=="orden"){
+                binding!!.imgToolbarPdf.visibility = View.GONE
+            }else{
+                //showResponse(preference.getTypeEvent())
+                binding!!.imgToolbarPdf.visibility = View.VISIBLE
+                binding!!.imgToolbarPdf.setOnClickListener{
+                    excelIngresoOrder()
+                }
+            }
+            if(destination.id == R.id.navigation_qr_scaner) {
                     binding.toolbarOrder.visibility = View.VISIBLE
                     binding.textToolbar.setText(R.string.qr_scaner)
                     btn_toolbar_qr.setImageResource(R.drawable.ic_baseline_qr_code_24)
@@ -158,6 +199,7 @@ class DashboardActivity : AppCompatActivity() {
                     }
 
                 } else if(destination.id == R.id.navigation_user) {
+                    binding!!.imgToolbarPdf.visibility = View.GONE
                     binding.toolbarOrder.visibility = View.VISIBLE
                     binding.imgToolbarSingOut.setImageResource(R.drawable.ic_outline_sing_out_white)
                     binding.textToolbar.setText(R.string.user)
@@ -172,7 +214,6 @@ class DashboardActivity : AppCompatActivity() {
                     }
 
                 }
-
         }
     }
 
@@ -186,7 +227,7 @@ class DashboardActivity : AppCompatActivity() {
                 runOnUiThread {
                     if (call.isSuccessful) {
                         if (response != null) {
-                            if (response.success) {
+                            if (response.success!!) {
                                 iniTextTicket(response.total)
                             }
                         } else {
@@ -254,6 +295,15 @@ class DashboardActivity : AppCompatActivity() {
         startActivity(intent)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if(preference.getTypeEvent()=="orden"){
+            binding!!.imgToolbarPdf.visibility = View.GONE
+        }else{
+            //showResponse(preference.getTypeEvent())
+            binding!!.imgToolbarPdf.visibility = View.VISIBLE
+            binding!!.imgToolbarPdf.setOnClickListener{
+                excelIngresoOrder()
+            }
+        }
         loading_qr_code.visibility =View.VISIBLE
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if(result != null){
@@ -291,7 +341,7 @@ class DashboardActivity : AppCompatActivity() {
             runOnUiThread {
                 if(call.isSuccessful) {
                     if (response != null) {
-                        if (response.success){
+                        if (response.success!!){
                             //dogCode.indexOf(code)
                             Log.d("DASHBOARDPARTAKER", call.body().toString())
                             addPartakerDB(code, response.partaker!!)
@@ -304,7 +354,7 @@ class DashboardActivity : AppCompatActivity() {
                             btn_toolbar_qr.isEnabled = true
                         }else{
                             if(response.status.equals("Ticket Ya Ingreso") ){
-                                detalleOrder(code, response.status.uppercase())
+                                detalleOrder(code, response.status!!.uppercase())
                                 loading_qr_code.visibility =View.GONE
                                 btn_toolbar_qr.isEnabled = true
                             }else{
@@ -313,7 +363,7 @@ class DashboardActivity : AppCompatActivity() {
                                     loading_qr_code.visibility =View.GONE
                                     btn_toolbar_qr.isEnabled = true
                                 }else{
-                                    alertShow(response.status)
+                                    alertShow(response.status!!)
                                     loading_qr_code.visibility =View.GONE
                                     btn_toolbar_qr.isEnabled = true
                                 }
@@ -420,9 +470,9 @@ class DashboardActivity : AppCompatActivity() {
             runOnUiThread {
                 if(call.isSuccessful) {
                     if (response != null) {
-                        if (response.success){
+                        if (response.success == true){
                             //dogCode.indexOf(code)
-                            val ticket = addTicketDB(code, response.status)
+                            val ticket = addTicketDB(code, response.status!!)
                             dogCode.add(ticket)
 
                             dogCode.reverse()
@@ -431,11 +481,11 @@ class DashboardActivity : AppCompatActivity() {
                             btn_toolbar_qr.isEnabled = true
                         }else{
                             if(response.status.equals("Ticket Ya Ingreso")){
-                                detalleOrder(code, response.status.uppercase())
+                                detalleOrder(code, response.status!!.uppercase())
                                 loading_qr_code.visibility =View.GONE
                                 btn_toolbar_qr.isEnabled = true
                             }else{
-                                alertShow(response.status)
+                                alertShow(response.status!!)
                                 loading_qr_code.visibility =View.GONE
                                 btn_toolbar_qr.isEnabled = true
                                // if(!response.status.equals("Pertenece Otro Evento")) {
@@ -505,6 +555,139 @@ class DashboardActivity : AppCompatActivity() {
             .setTorchEnabled(false)
             .setBeepEnabled(true)
             .initiateScan()
+    }
+    fun mostrarXls(name: String, absolutePath: String) {
+        // Obtener el directorio donde se guardó el archivo
+        val dir = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
+        // Crear un archivo con el nombre del archivo xls
+        val file = File(dir, name)
+        // Crear un Intent para abrir el archivo con una aplicación externa
+        val intent = Intent(Intent.ACTION_VIEW)
+        // Indicar la ruta y el tipo de archivo
+        intent.setDataAndType(Uri.parse(absolutePath), "application/vnd.ms-excel")
+        // Iniciar la actividad
+        startActivity(intent)
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun excelIngresoOrder() {
+        if(preference.getKeyValue().equals("")){
+            showResponse("No posee autorización")
+        }
+        if(preference.getIdEvent() == 0){
+            showResponse("Se requiere el ID del evento")
+        }
+        if(!preference.getKeyValue().equals("") && preference.getIdEvent() != 0) {
+            loading_qr_code.visibility =View.VISIBLE
+            val call = getRestEngine().create(OrderEntryService::class.java).downloadFileWithUrl(
+                preference.getKeyValue(), preference.getIdEvent()
+            )
+            call.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    loading_qr_code.visibility =View.GONE
+                    if (response.isSuccessful) {
+                        val name = "ORDENENTRADA_${obtenerFechaHora()}.xls"
+                        val dir =
+                            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                        val file = File(dir, name)
+                        val inputStream = response.body()?.byteStream()
+                        if (inputStream != null) {
+                            val outputStream = FileOutputStream(file)
+                            val bufferedInputStream = BufferedInputStream(inputStream)
+                            val bufferedOutputStream = BufferedOutputStream(outputStream)
+                            val buffer = ByteArray(5024)
+                            var bytesRead: Int
+                            while (bufferedInputStream.read(buffer).also { bytesRead = it } != -1) {
+                                bufferedOutputStream.write(buffer, 0, bytesRead)
+                            }
+                            bufferedOutputStream.flush()
+                            bufferedOutputStream.close()
+                            bufferedInputStream.close()
+                            MediaScannerConnection.scanFile(
+                                this@DashboardActivity,
+                                arrayOf(file.path),
+                                null,
+                                null
+                            )
+                            if (dir != null) {
+                                Toast.makeText(
+                                    this@DashboardActivity,
+                                    "Archivo guardado ${file.path}",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                            val intent = Intent(Intent.ACTION_VIEW)
+                            intent.setDataAndType(
+                                Uri.parse(file.absolutePath),
+                                "application/vnd.ms-excel"
+                            )
+                            startActivity(intent)
+
+                        } else {
+                            runOnUiThread {
+                                Toast.makeText(
+                                    this@DashboardActivity,
+                                    "Error al obtener el archivo",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    } else {
+                        // Mostrar un mensaje con el código de error
+                        Toast.makeText(
+                            this@DashboardActivity,
+                            "Error: ${response.code()}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    // Mostrar un mensaje con la excepción
+                    Toast.makeText(
+                        this@DashboardActivity,
+                        "Error: ${t.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
+        }else{
+
+        }
+
+    }
+    fun InputStream.saveToMusicFolder(context: Context, fileName: String) {
+        val resolver = context.contentResolver
+        val uri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            val contentValues = ContentValues().apply {
+                put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
+                put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS)
+            }
+            resolver.insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, contentValues)
+        } else {
+            File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                fileName
+            ).toUri()
+        }
+        resolver.openOutputStream(uri!!)!!.use { copyTo(it) }
+        close()
+    }
+    fun obtenerFechaHora(): String {
+        // Obtener la fecha y hora actual
+        val fechaHora = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            LocalDateTime.now()
+        } else {
+            TODO("VERSION.SDK_INT < O")
+        }
+        // Crear un formateador con el patrón deseado
+        val formateador = DateTimeFormatter.ofPattern("yyyyMMddHHmmss")
+        // Formatear la fecha y hora según el formateador
+        val resultado = fechaHora.format(formateador)
+        // Devolver el resultado
+        return resultado
     }
 
 

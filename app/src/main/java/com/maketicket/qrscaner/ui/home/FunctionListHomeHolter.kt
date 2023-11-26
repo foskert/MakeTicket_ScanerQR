@@ -31,7 +31,7 @@ class FunctionListHomeHolter(
             binding.textHomeFunction.setTextColor(ContextCompat.getColor(view.context, R.color.p1))
         //}
         DBHelper= MySQLiteHelper(activity!!)
-        val funct = DBHelper.ShowFunction(iten.id)
+        val funct = DBHelper.ShowFunction(iten.id!!)
         if (funct!= null) {
             binding.textHomeFunction.setTextColor(ContextCompat.getColor(view.context, R.color.p1))
 

@@ -164,15 +164,17 @@ class HomeFragment : Fragment(){
                     _binding?.loadingProgessbar?.visibility = View.GONE
                     if (call.isSuccessful) {
                         if (response != null) {
-                            if (response.success) {
+                            if (response.success == true) {
                                 iniTextTicket(response.total)
+                            }else{
+                                showResponse(response.status)
                             }
                         } else {
                             showResponse("Error de respuesta")
                         }
                         // showResponse(dogCode.size.toString())
                     } else {
-                        showResponse("Error de conexión ")
+                        showResponse("Error de conexión 175")
                     }
                 }
             }
@@ -201,7 +203,11 @@ class HomeFragment : Fragment(){
                     _binding?.loadingProgessbar?.visibility = View.GONE
                     if (call.isSuccessful) {
                         if (response != null) {
-                                iniTextOrdenes(response)
+                            if (response.success == true) {
+                                iniTextOrdenes(response.data)
+                            }else{
+                                showResponse(response.status)
+                            }
                         } else {
                             Log.d("HOME FRAGMENT  response", response.toString())
                             showResponse("Error de respuesta")
@@ -209,7 +215,7 @@ class HomeFragment : Fragment(){
                         // showResponse(dogCode.size.toString())
                     } else {
                         Log.d("HOME FRAGMENT  conexión", call.isSuccessful.toString())
-                        showResponse("Error de conexión ")
+                        //showResponse("Error de conexión 212 ")
                     }
                 }
             }
@@ -275,7 +281,7 @@ class HomeFragment : Fragment(){
             activity?.runOnUiThread {
                 if(call.isSuccessful) {
                     if (response != null) {
-                        if (response.success){
+                        if (response.success!!){
                             iniRecycleView(response.funciones)
                             Log.d("LIST_FUNCTION", "respuesta ${response.funciones}")
                         }else{
@@ -288,7 +294,7 @@ class HomeFragment : Fragment(){
                     }
                     // showResponse(dogCode.size.toString())
                 }else{
-                    showResponse("Error de conexión ")
+                    showResponse("Error de conexión 291")
                     Log.d("LIST_FUNCTION", "respuesta error de conexion")
                 }
             }

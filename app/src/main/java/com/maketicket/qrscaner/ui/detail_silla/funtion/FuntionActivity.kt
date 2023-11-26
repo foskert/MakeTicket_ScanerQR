@@ -75,7 +75,7 @@ class FuntionActivity : AppCompatActivity() {
                 binding.loadingProgessbar.visibility = View.GONE
                 if(call.isSuccessful) {
                     if (response != null) {
-                        if (response.success){
+                        if (response.success!!){
                             load(response.funciones)
                             Log.d("LIST_FUNCTION", "respuesta ${response.funciones}")
                         }else{

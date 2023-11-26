@@ -187,9 +187,9 @@ class QRScanerFragment : Fragment() {
             activity?.runOnUiThread {
                 if(call.isSuccessful) {
                     if (response != null) {
-                        if (response.success){
+                        if (response.success==true){
                             //dogCode.indexOf(code)
-                            val ticket = addTicketDB(code, response.status)
+                            val ticket = addTicketDB(code, response.status!!)
                             dogCode.reverse()
                             dogCode.add(ticket)
                             dogCode.reverse()
@@ -202,7 +202,7 @@ class QRScanerFragment : Fragment() {
                                 //detalleOrder(code, response.status.uppercase())
                                 loading_qr_code.visibility =View.GONE
                             }else{
-                                alertShowQRScaner(response.status)
+                                alertShowQRScaner(response.status!!)
                                 //alertShow(response.status)
                                 loading_qr_code.visibility =View.GONE
                                 // if(!response.status.equals("Pertenece Otro Evento")) {
@@ -271,7 +271,7 @@ class QRScanerFragment : Fragment() {
             activity?.runOnUiThread {
                 if(call.isSuccessful) {
                     if (response != null) {
-                        if (response.success){
+                        if (response.success!!){
                             //dogCode.indexOf(code)
                             Log.d("DASHBOARDPARTAKER", call.body().toString())
                             alertShowQRScaner("Ticket ingresado correctamente $code")
@@ -285,7 +285,7 @@ class QRScanerFragment : Fragment() {
                             loading_qr_code.visibility =View.GONE
                         }else{
                             if(response.status.equals("Ticket Ya Ingreso") ){
-                                detalleOrder(code, response.status.uppercase())
+                                detalleOrder(code, response.status!!.uppercase())
                                 alertShowQRScaner("Ticket Ya Ingreso $code")
                                 loading_qr_code.visibility =View.GONE
                             }else{
@@ -294,7 +294,7 @@ class QRScanerFragment : Fragment() {
                                     //alertShow("${response.status} \n${response.partaker!!.name} ${response.partaker!!.lastname} \n${response.partaker!!.email} \n${response.partaker!!.company} \n${response.partaker!!.category}")
                                     loading_qr_code.visibility =View.GONE
                                 }else{
-                                    alertShowQRScaner(response.status)
+                                    alertShowQRScaner(response.status!!)
                                    // alertShow(response.status)
                                     loading_qr_code.visibility =View.GONE
                                 }

@@ -134,8 +134,8 @@ class OrderDetailActivity : AppCompatActivity() {
                         Log.d("FRAGMENT_ORDEN_RESPONSE", response.toString())
                         Log.d("FRAGMENT_ORDEN_RESPONSE", i.toString())
                         Log.d("FRAGMENT_ORDEN_RESPONSE_dogCodeQR", dogCodeQR[i].toString())
-                        if(response.success) {
-                            addTicketDB(code, response.status)
+                        if(response.success== true) {
+                            addTicketDB(code, response.status!!)
                             dogCodeQR[i].status = "Fue al evento"
                             adpater_code_qr.UpdateData(dogCodeQR)
                             adpater_code_qr.notifyDataSetChanged()
@@ -216,7 +216,7 @@ class OrderDetailActivity : AppCompatActivity() {
                 if(call.isSuccessful) {
                     if (response != null) {
                         Log.d("DETALLEORDEN", response.toString())
-                        if (response.success){
+                        if (response.success!!){
                             //compartir=true
                             loadOrder(
                                 response.purchaseOrder,
@@ -249,7 +249,11 @@ class OrderDetailActivity : AppCompatActivity() {
                 if(call.isSuccessful) {
                     if (response != null) {
                         Log.d("getDetailSilla", response.toString())
-                        getCodeValue("${response.id_purchase_order}")
+                        if(response.success==true) {
+                            getCodeValue("${response.data?.id_purchase_order}")
+                        }else{
+                            showResponse(response.status.toString())
+                        }
                     }else{
                         showResponse("Error respuesta nula ")
                     }

@@ -113,7 +113,7 @@ class KeyActivity : AppCompatActivity() {
             // runOnUiThread {
             if (call.isSuccessful) {
                 if (response != null) {
-                    if (response.success) {
+                    if (response.success!!) {
                         response.total?.forEach {
                             preference.setNameEvent(it.name.toString())
                         }

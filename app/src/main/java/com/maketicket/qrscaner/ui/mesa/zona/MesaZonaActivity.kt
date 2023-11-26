@@ -68,8 +68,11 @@ class MesaZonaActivity : AppCompatActivity() {
                 if(call.isSuccessful) {
                     if (response != null) {
                         Log.d("LIST_MESA_ZONA", "respuesta $response")
-
-                        loadMesaZona(response)
+                        if(response.success==true){
+                            loadMesaZona(response.data)
+                        }else{
+                            showResponse(response.status)
+                        }
                     }else{
                         showResponse("Error de respuesta  ")
                     }
